@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+html,body{
+    height: 100%;
+    background-color:#2B474B ;
+    color: #ffff;
+}
+
+.slider{
+    height: 100%;
+}
+
+.slider__layer{
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+.slider__item{
+    overflow:hidden;
+    transform: scale(1.25) !important;
+    transition: 2s ease !important;
+}
+
+.slider__item:not(.swiper-slide-active){
+    transform: scale(1) !important;
+}
