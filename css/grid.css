@@ -1,0 +1,31 @@
+:root{
+    --grid-width: 1140px;
+    --grid-gutter: .5em;
+}
+.container{
+    max-width: calc(var(--grid-width) + var(--grid-gutter)*2);
+    min-width: calc(320 + var(--grid-gutter)*2);
+    padding: 0 var(--grid-gutter);
+    margin: auto;
+}
+.row{
+    display: flex;
+    margin: 0 calc(var(--grid-gutter)*-1);
+}
+.col{
+    width: fit-content;
+    padding: 0 var(--grid-gutter);
+}
+.col--lead{
+    flex:1;
+}
+.col--center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col--right{
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,3 +1,6 @@
+@import'../libs/btn/anim-menu-btn.css';
+@import '../css/vars.css';
+@import '../css/grid.css';
 *{
     margin: 0;
     padding: 0;
@@ -7,7 +10,32 @@
 html,body{
     height: 100%;
     background-color:#2B474B ;
-    color: #ffff;
+    color: var(--white-color);
+}
+@font-face {
+    font-family: montserrat-g;
+    src: url(../fonts/Montserrat-Regular.woff2);
+}
+@font-face {
+    font-family: montserrat-g;
+    src: url(../fonts/Montserrat-Bold.woff2);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: montserrat-g;
+    src: url(../fonts/Montserrat-Black.woff2);
+    font-weight: 900;
+}
+@font-face {
+    font-family: montserrat-g;
+    src: url(../fonts/Montserrat-SemiBold.woff2);
+    font-weight: 600;
+}
+
+body{
+    font-size: 16px;
+    font-family: montserrat-g, sans-serif;
 }
 
 .slider{
@@ -30,3 +58,162 @@ html,body{
 .slider__item:not(.swiper-slide-active){
     transform: scale(1) !important;
 }
+.sliger-ui{
+    position: absolute;
+    z-index: 10;
+    inset:0;
+}
+.top-line{
+    padding: 3.2em 0;
+}
+.logo{
+    display: block;
+
+}
+.logo img{
+    display: block;
+    width: 15.5em;
+}
+.main-menu li{
+    list-style:none ;
+    display: inline-block;
+}
+.main-menu li > * {
+    color: var(--gray-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.725em;
+    letter-spacing: .25em;
+    position: relative;
+
+}
+
+.main-menu li > *::before,
+.main-menu li > *::after{
+    content: '';
+    display: inline-block;
+    height: 2px;
+    background-color: var(--green-color);
+    width: 11.25px;
+    vertical-align: middle;
+    top: -1px;
+    left: -1.5px;
+    position: relative;
+    border-radius: 10em;
+    margin: 0 7.25px;
+    visibility: hidden;
+
+}
+.main-menu li.active > *,
+.main-menu li:hover > * {
+    color:var(--white-color);
+}
+
+.main-menu li.active > *::before,
+.main-menu li:hover > *::before,
+.main-menu li.active > *::after,
+.main-menu li:hover > *::after {
+    visibility: visible;
+}
+.button{
+    padding: 1.05em 2.6em;
+    color:var(--white-color);
+    border: 1.5px solid transparent;
+    border-radius: 10em 0 10em 10em;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.21em;
+    text-transform: uppercase;
+    font-size: 0.65em;
+    cursor: pointer;
+    background-color:var(--green-color);
+}
+.button--top{
+    background-color:transparent;
+    border-color:var(--green-color);
+    margin: 0 2em 0 3em;
+}
+
+.button:hover{
+    background-color: var(--green-color);
+}
+.submenu{
+    --anim-menu-btn-color: var(--gray-color);
+    --anim-menu-btn-gap: .195em;
+    --anim-menu-btn-width: 1.08em;
+}
+.button--main{
+    margin-top: 3em;
+    padding: 1.6em 3.5em;
+
+}
+.header-wraper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.header-content{
+    flex:1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    flex-direction: column;
+}
+.header-content__slide{
+    position: absolute;
+}
+
+.header-content h1{
+    font-size: calc(var(--index)*11.95);
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.header-content p{
+    max-width: 560px;
+    font-weight: 600;
+    line-height: 1.4;
+    display: inline-block;
+}
+.header-botom{
+    min-height: 120px;
+}
+.letters .letter{
+    text-shadow:  25px 0 35px #0000007d;
+    position: relative;
+    margin-left: calc(var(--index)* -2.65);
+    right: calc(var(--index)* -2.65);
+    opacity: 0;
+    top: -5em;
+    transition: opacity var(--transition), top var(--transition);
+}
+.header-content__slide.active .letter{
+    opacity: 1;
+    top: 0;
+}
+.header-content__slide.active + * .letter{
+    top: 5em;
+}
+.header-content__info{
+    top: -18em;
+    position: relative;
+    opacity: 0;
+    transition: opacity 1s ease, top 1.25s ease;
+ }
+ .header-content__slide.active .header-content__info{
+    opacity: 1;
+    top: 0;
+ }
+ .header-content__slide.active:has(* + .active .header-content__info),
+ .header-content__slide.active.active + * .header-content__info
+ {
+    top: 18em;
+ }
+ .sliger-ui{
+    pointer-events: none;
+ }
+ .logo,.main-menu,.button,.submenu{
+    pointer-events: auto;
+ }
